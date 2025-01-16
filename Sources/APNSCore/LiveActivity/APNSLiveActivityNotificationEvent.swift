@@ -22,4 +22,7 @@ public struct APNSLiveActivityNotificationEvent: Hashable, Sendable {
 
     /// Specifies that live activity should be ended
     public static let end = Self(rawValue: "end")
+    
+    /// Specifies that live activity should be started
+    public static let start = Self(rawValue: "start")
 }
