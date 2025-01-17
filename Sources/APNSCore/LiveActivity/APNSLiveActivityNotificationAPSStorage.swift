@@ -44,11 +44,12 @@ struct APNSLiveActivityNotificationAPSStorage<ContentState: Encodable & Sendable
         self.event = event
         self.attributesType = attributesType
         self.attributes = attributesType != nil ? [:] : nil
-        self.alert = attributesType != nil ? .init(title: "") : nil
+        self.alert = attributesType != nil ? .init(title: "", body: "") : nil
     }
     
     // required for start event
     struct Alert: Encodable {
         let title: String
+        let body: String
     }
 }
