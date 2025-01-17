@@ -111,7 +111,8 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         event: APNSLiveActivityNotificationEvent,
         timestamp: Int,
         dismissalDate: APNSLiveActivityDismissalDate = .none,
-        apnsID: UUID? = nil
+        apnsID: UUID? = nil,
+        attributesType: String? = nil
     ) {
         self.init(
             expiration: expiration,
@@ -120,7 +121,8 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
             contentState: contentState,
             event: event,
             timestamp: timestamp,
-            dismissalDate: dismissalDate
+            dismissalDate: dismissalDate,
+            attributesType: attributesType
         )
     }
 
@@ -147,13 +149,15 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         contentState: ContentState,
         event: APNSLiveActivityNotificationEvent,
         timestamp: Int,
-        dismissalDate: APNSLiveActivityDismissalDate = .none
+        dismissalDate: APNSLiveActivityDismissalDate = .none,
+        attributesType: String? = nil
     ) {
         self.aps = APNSLiveActivityNotificationAPSStorage(
             timestamp: timestamp,
             event: event.rawValue,
             contentState: contentState,
-            dismissalDate: dismissalDate.dismissal
+            dismissalDate: dismissalDate.dismissal,
+            attributesType: attributesType
         )
         self.apnsID = apnsID
         self.expiration = expiration
