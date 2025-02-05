@@ -111,6 +111,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         event: APNSLiveActivityNotificationEvent,
         timestamp: Int,
         dismissalDate: APNSLiveActivityDismissalDate = .none,
+        staleDate: APNSLiveActivityDismissalDate = .none,
         apnsID: UUID? = nil,
         attributesType: String? = nil
     ) {
@@ -122,6 +123,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
             event: event,
             timestamp: timestamp,
             dismissalDate: dismissalDate,
+            staleDate: staleDate,
             attributesType: attributesType
         )
     }
