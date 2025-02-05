@@ -150,6 +150,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         event: APNSLiveActivityNotificationEvent,
         timestamp: Int,
         dismissalDate: APNSLiveActivityDismissalDate = .none,
+        staleDate: APNSLiveActivityDismissalDate = .none,
         attributesType: String? = nil
     ) {
         self.aps = APNSLiveActivityNotificationAPSStorage(
@@ -157,6 +158,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
             event: event.rawValue,
             contentState: contentState,
             dismissalDate: dismissalDate.dismissal,
+            staleDate: staleDate.dismissal,
             attributesType: attributesType
         )
         self.apnsID = apnsID
