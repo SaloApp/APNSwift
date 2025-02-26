@@ -112,6 +112,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         timestamp: Int,
         dismissalDate: APNSLiveActivityDismissalDate = .none,
         staleDate: APNSLiveActivityDismissalDate = .none,
+        relevanceScore: Int? = nil,
         apnsID: UUID? = nil,
         attributesType: String? = nil
     ) {
@@ -124,6 +125,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
             timestamp: timestamp,
             dismissalDate: dismissalDate,
             staleDate: staleDate,
+            relevanceScore: relevanceScore,
             attributesType: attributesType
         )
     }
@@ -153,6 +155,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
         timestamp: Int,
         dismissalDate: APNSLiveActivityDismissalDate = .none,
         staleDate: APNSLiveActivityDismissalDate = .none,
+        relevanceScore: Int? = nil,
         attributesType: String? = nil
     ) {
         self.aps = APNSLiveActivityNotificationAPSStorage(
@@ -161,6 +164,7 @@ public struct APNSLiveActivityNotification<ContentState: Encodable & Sendable>: 
             contentState: contentState,
             dismissalDate: dismissalDate.dismissal,
             staleDate: staleDate.dismissal,
+            relevanceScore: relevanceScore,
             attributesType: attributesType
         )
         self.apnsID = apnsID
